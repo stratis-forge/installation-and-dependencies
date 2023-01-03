@@ -18,7 +18,7 @@ LOCATION=$(curl -s https://api.github.com/repos/cerr/octave-colab/releases/lates
 cd /content && tar xzvf /content/octavecolab.tar.gz
 chmod -R 777 /content
 
-export OCTAVE_EXECUTABLE=/content/octavecolab/bin/octave-cli
+export OCTAVE_EXECUTABLE=/content/octave/bin/octave-cli
 ```
 
 On Windows, MinGW or .NET is required to use octave_cli within oct2py. MinGW can be installed from https://www.mingw-w64.org/downloads/#mingw-builds. 

@@ -5,12 +5,20 @@ STRATIS workflows use various image processing libraries for data transformation
 * for Windows and Mac following instructions at https://octave.org/download. 
 * for Linux using the pre-compiled Octave with Java as follows
 ```
+
+apt-get update
+apt-get -y install curl wget nano libgraphicsmagick++1-dev libsuitesparse-dev libqrupdate1 libreadline7 libfftw3-3 libhdf5-100 libgl1 libglu1-mesa libgl2ps1.4 \
+        libcurl4-gnutls-dev libarpack2 libopenblas-base git gnuplot libqt5gui5 libqt5core5a
+
+mkdir /content
+
 LOCATION=$(curl -s https://api.github.com/repos/cerr/octave-colab/releases/latest \
-| grep "tag_name" \
-| awk '{print "https://github.com/cerr/octave-colab/archive/" substr($2, 2, length($2)-3) ".zip"}') \
-; 
-curl -L -o /content/octave7.2 $LOCATION
-export OCTAVE_EXECUTABLE=/content/octave7.2/bin/octave-cli
+| awk -F\" '/browser_download_url/ { print $4 }') && curl -L -o /content/octavecolab.tar.gz $LOCATION
+ 
+cd /content && tar xzvf /content/octavecolab.tar.gz
+chmod -R 777 /content
+
+export OCTAVE_EXECUTABLE=/content/octavecolab/bin/octave-cli
 ```
 
 On Windows, MinGW or .NET is required to use octave_cli within oct2py. MinGW can be installed from https://www.mingw-w64.org/downloads/#mingw-builds. 

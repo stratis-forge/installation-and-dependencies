@@ -1,6 +1,19 @@
 ## Installing dependencies for STRATIS workflows
 
-STRATIS workflows use various image processing libraries for data transformation, registration and segmentation. The workflows that use [CERR](https://www.github.com/cerr) for feature extraction and image segmentaition require GNU Octave to be installed on the host computer. GNU Octave can be downloaded for Windows and Mac following instructions at https://octave.org/download. For Linux, please download the pre-compiled Octave with Java following instructions at https://github.com/stratis-forge/installation-and-dependencies/main/install_octave_linux.ipynb. On Windows, MinGW or .NET is required to use octave_cli within oct2py. MinGW can be installed from https://www.mingw-w64.org/downloads/#mingw-builds. 
+STRATIS workflows use various image processing libraries for data transformation, registration and segmentation. The workflows that use [CERR](https://www.github.com/cerr) for feature extraction and image segmentaition require GNU Octave to be installed on the host computer. GNU Octave can be downloaded
+
+* for Windows and Mac following instructions at https://octave.org/download. 
+* for Linux using the pre-compiled Octave with Java as follows
+```
+LOCATION=$(curl -s https://api.github.com/repos/cerr/octave-colab/releases/latest \
+| grep "tag_name" \
+| awk '{print "https://github.com/cerr/octave-colab/archive/" substr($2, 2, length($2)-3) ".zip"}') \
+; 
+curl -L -o /content/octave7.2 $LOCATION
+export OCTAVE_EXECUTABLE=/content/octave7.2/bin/octave-cli
+```
+
+On Windows, MinGW or .NET is required to use octave_cli within oct2py. MinGW can be installed from https://www.mingw-w64.org/downloads/#mingw-builds. 
 
 * Add `JAVA_HOME` and `OCTAVE_EXECUTABLE` environment variables to point to the respective Java Runtime and GNU Octave locations. For eample, `JAVA_HOME` might be located at `C:\Program Files (x86)\Java\jre1.8.0_351`and `OCTAVE_EXECUTABLE` at `C:\Program Files\GNU Octave\Octave-7.3.0\mingw64\bin\octave-cli.exe`
 * Open Octave and install additional packages at the command line:

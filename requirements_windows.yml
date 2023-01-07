@@ -1,0 +1,25 @@
+name: stratis
+channels:
+  - defaults
+  - simpleitk
+  - conda-forge
+  - anaconda
+dependencies:
+  - python=3.9
+  - oct2py
+  - octave_kernel
+  - jupyterlab
+  - ipython
+  - ipywidgets
+  - matplotlib
+  - h5py
+  - numpy
+  - scipy
+  - pandas
+  - multiprocess
+  - SimpleITK>=2.2.0
+  - pydicom
+  - pip
+  - pip:
+    - rt-utils
+    - pyxnat

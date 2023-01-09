@@ -28,7 +28,7 @@ chmod -R 777 /content
 export OCTAVE_EXECUTABLE=/content/octave/bin/octave-cli
 ```
 
-* Add `JAVA_HOME` and `OCTAVE_EXECUTABLE` environment variables to point to the respective Java Runtime and GNU Octave locations. For eample, `JAVA_HOME` might be located at `C:\Program Files (x86)\Java\jre1.8.0_351`and `OCTAVE_EXECUTABLE` at `C:\Program Files\GNU Octave\Octave-7.3.0\mingw64\bin\octave-gui.exe`
+* Add `JAVA_HOME` and `OCTAVE_EXECUTABLE` environment variables to point to the respective Java Runtime and GNU Octave locations. For eample, `JAVA_HOME` might be located at `C:\Program Files\Java\jre1.8.0_351`and `OCTAVE_EXECUTABLE` at `C:\Program Files\GNU Octave\Octave-7.3.0\mingw64\bin\octave-gui.exe`
 * Open Octave and install additional packages at the command line:
 ```
 pkg install -forge io;

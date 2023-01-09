@@ -47,14 +47,14 @@ git clone --single-branch --branch octave_dev https://www.github.com/cerr/CERR.g
 
 Step1: Install Miniconda following the instructions at https://docs.conda.io/en/latest/miniconda.html
 
-Step 2: Download requirements file for your OS from https://github.com/stratis-forge/installation-and-dependencies. Note that the requirements file can be extended as needed by the user to use additional packages.
-
-Step 3: Build conda environment 
-Download the requirements file from https://github.com/stratis-forge/installation-and-dependencies/blob/main/requirements_windows.yml. 
+Step 2: Download the requirements file from https://github.com/stratis-forge/installation-and-dependencies/blob/main/requirements_windows.yml. 
 ```
 cd C:/software/stratis-forge
 git clone https://github.com/stratis-forge/installation-and-dependencies.git
 ```
+Note that the requirements file can be extended as needed by the user to use additional packages. An updated requirements file along with the analysis workflow can then be pushed back to stratis-forge via a pull request.
+
+Step 3: Build conda environment 
 Then issue the following command from Miniconda prompt to create the environment. Note that it is assumed that Miniconda in installed under C:/Users/username/Miniconda3. Please use the correct location of Miniconda.
 ```
 conda env create -f C:/software/stratis-forge/installation-and-dependencies/requirements_windows.txt \

@@ -50,18 +50,22 @@ Step1: Install Miniconda following the instructions at https://docs.conda.io/en/
 Step 2: Download requirements file for your OS from https://github.com/stratis-forge/installation-and-dependencies. Note that the requirements file can be extended as needed by the user to use additional packages.
 
 Step 3: Build conda environment 
-
-Issue the following command from Miniconda prompt:
+Download the requirements file from https://github.com/stratis-forge/installation-and-dependencies/blob/main/requirements_windows.yml. 
 ```
-conda env create -f C:/software/stratis-forge/installation-and-dependencies\requirements_win.txt \
-   -p C:\Users\username\Miniconda3\envs\stratis
+cd C:/software/stratis-forge
+git clone https://github.com/stratis-forge/installation-and-dependencies.git
+```
+Then issue the following command from Miniconda prompt to create the environment. Note that it is assumed that Miniconda in installed under C:/Users/username/Miniconda3. Please use the correct location of Miniconda.
+```
+conda env create -f C:/software/stratis-forge/installation-and-dependencies/requirements_windows.txt \
+   -p C:/Users/username/Miniconda3/envs/stratis
 ```
 
 Step 4: Activate the newly created environment
 
 Issue the following command from Miniconda prompt:
 ```
-conda activate C:\Users\username\Miniconda3\envs\stratis
+conda activate C:/Users/username/Miniconda3/envs/stratis
 ```
 
 Step 5: Start Jupyter lab server.

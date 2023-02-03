@@ -1,17 +1,17 @@
-## Installing dependencies for STRATIS workflows
+## Install GNU Octave
 
-STRATIS workflows use various image processing libraries for data transformation, registration and segmentation. The workflows are provided in the form of Jupyter notebooks. Python packages and related dependencies are installed within an Anaconda environment as described in a section on this page. The workflows that use [CERR](https://www.github.com/cerr) for feature extraction and image segmentaition require GNU Octave to be installed on the host computer. 
-
-### Pre-requisites for installing GNU Octave
-* On Windows, MinGW or .NET is required to use Octave. MinGW can be installed from https://www.mingw-w64.org/downloads/#mingw-builds. 
-* GNU Octave uses Qt for graphics. Install Qt at https://www.qt.io/download-qt-installer
-
-
-### GNU Octave Installation
-
-* Windows and Mac: follow instructions at https://octave.org/download. 
-* Linux: Our group has pre-compiled Octave with Java. Follow the installation instructions below.
-
+### Windows
+Download and run .exe file from https://octave.org/download#ms-windows
+### Mac
+Use Homebrew (https://wiki.octave.org/Octave_for_macOS)
+```
+brew update
+brew upgrade
+brew install octave
+octave --gui
+```
+### Linux
+Follow the installation instructions below for pre-compiled Octave for Debian.
 ```
 apt-get update
 apt-get -y install curl wget nano libgraphicsmagick++1-dev libsuitesparse-dev libqrupdate1 libreadline7 libfftw3-3 libhdf5-100 libgl1 libglu1-mesa libgl2ps1.4 \
@@ -27,23 +27,21 @@ chmod -R 777 /content
 
 export OCTAVE_EXECUTABLE=/content/octave/bin/octave-cli
 ```
+## Set Java, Octave and Python paths
+### Set JAVA_HOME env var
+Add `JAVA_HOME` environment variables to point to location to point to Java Runtime. For eample, on Windows set `JAVA_HOME` as `C:\Program Files\Java\jre1.8.0_351` 
 
-* Add `JAVA_HOME` and `OCTAVE_EXECUTABLE` environment variables to point to the respective Java Runtime and GNU Octave locations. For eample, `JAVA_HOME` might be located at `C:\Program Files\Java\jre1.8.0_351`and `OCTAVE_EXECUTABLE` at `C:\Program Files\GNU Octave\Octave-7.3.0\mingw64\bin\octave-gui.exe`
-* Open Octave and install additional packages at the command line:
-```
-pkg install -forge io;
-pkg install -forge statistics; 
-pkg install -forge image;
-```
+### Set OCTAVE_EXECUTABLE env var
+For example, on Windows set `OCTAVE_EXECUTABLE` as `C:\Program Files\GNU Octave\Octave-7.3.0\mingw64\bin\octave-cli.exe`
 
-### CERR Installation
-CERR can be downloaded from GitHub to a desired location as follows.
+## Install CERR
+Download CERR from GitHub to a desired location as follows.
 ```
 cd C:/software/cerr
 git clone --single-branch --branch octave_dev https://www.github.com/cerr/CERR.git
 ```
 
-## Creating Conda environment for STRATIS 
+## Create Conda environment 
 
 Step1: Install Miniconda following the instructions at https://docs.conda.io/en/latest/miniconda.html
 
@@ -81,3 +79,35 @@ Issue the following command from Miniconda prompt:
 ```
 conda deactivate
 ```
+
+## Install Octave packages
+
+### Set environment variables required for the Pythonic package
+For example, on Windows
+```
+C:> set PYTHONHOME=C:\Users\username\Miniconda3
+C:> set PYTHONPATH=C:\Users\username\Miniconda3
+C:> set PYTHON=C:\Users\username\Miniconda3\python.exe
+```
+
+### Open Octave and install
+#### For example, on Windows
+`C:> "C:\Program Files\GNU Octave\Octave-7.3.0\mingw64\bin\octave.bat" `
+#### Install packages from Octave command line
+```
+octave:1> pkg install -forge io;
+octave:2> pkg install -forge statistics; 
+octave:3> pkg install -forge image;
+octave:4> pkg install https://gitlab.com/mtmiller/octave-pythonic/-/archive/master/octave-pythonic-master.tar.gz
+```
+
+
+## Tips to debug installation issues:
+* On Mac: graphics_toolkit related error can be resolved by running the following in terminal
+```
+echo "set enable-bracketed-paste off" > .inputrc
+export INPUTRC=$PWD/.inputrc
+```
+* On Windows, MinGW or .NET installation might be required. MinGW can be installed from https://www.mingw-w64.org/downloads/#mingw-builds if you run into a related error. 
+* GNU Octave uses Qt for graphics. Install Qt at https://www.qt.io/download-qt-installer if you run into a related error.
+

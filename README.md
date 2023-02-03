@@ -82,12 +82,12 @@ conda deactivate
 
 ## Install Octave packages
 
-### Set environment variables required for the Pythonic package
+### Set environment variables required for Pythonic package
 For example, on Windows
 ```
-C:> set PYTHONHOME=C:\Users\username\Miniconda3
-C:> set PYTHONPATH=C:\Users\username\Miniconda3
-C:> set PYTHON=C:\Users\username\Miniconda3\python.exe
+C:> set PYTHONHOME=C:\Users\username\Miniconda3\envs\stratis
+C:> set PYTHONPATH=C:\Users\username\Miniconda3\envs\stratis
+C:> set PYTHON=C:\Users\username\Miniconda3\envs\stratis\python.exe
 ```
 
 ### Open Octave and install

@@ -112,4 +112,4 @@ export INPUTRC=$PWD/.inputrc
 * GNU Octave uses Qt for graphics. Install Qt at https://www.qt.io/download-qt-installer if you run into a related error.
 
 ## Singularity Container:
-Singularity container with all the dependencies can be downloaded [here](http://mskbox...]
+Singularity container with all the dependencies can be downloaded [here](http://mskbox...)

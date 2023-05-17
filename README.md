@@ -111,3 +111,5 @@ export INPUTRC=$PWD/.inputrc
 * On Windows, MinGW or .NET installation might be required. MinGW can be installed from https://www.mingw-w64.org/downloads/#mingw-builds if you run into a related error. 
 * GNU Octave uses Qt for graphics. Install Qt at https://www.qt.io/download-qt-installer if you run into a related error.
 
+## Singularity Container:
+Singularity container with all the dependencies can be downloaded [here](http://mskbox...]
